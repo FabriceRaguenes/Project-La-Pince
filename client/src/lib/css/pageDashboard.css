@@ -1,0 +1,394 @@
+/* -------------------------
+   Base
+------------------------- */
+
+.main {
+  display: block;
+}
+
+/* left grid */
+.username {
+  color: var(--textSecondairePlaceholder);
+  font-family: text, sans-serif;
+}
+
+/* Accessibilité (label invisible) */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* -------------------------
+   Cards : Totaux
+------------------------- */
+
+.expensesTotalLeft,
+.expensesTotalRight {
+  background-color: var(--backgroundCarte);
+  border: 1px solid var(--bordure);
+  box-shadow: 0 0 3px 0 var(--bouttonPrincipal);
+  text-align: center;
+  border-radius: 10px;
+  padding-bottom: 1em;
+}
+
+.expenseTitle {
+  font-size: 20px;
+  padding-top: 1em;
+}
+
+.expense {
+  font-size: 55px;
+  letter-spacing: 0.1em;
+}
+
+/* Spécifique colonne droite */
+.expensesTotalRight {
+  margin-top: 3em;
+}
+
+/* -------------------------
+   Search + actions
+------------------------- */
+
+.search {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5em;
+  margin-top: 1em;
+  position: relative;
+}
+
+.searchBar {
+  background-color: var(--backgroundCarte);
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  padding: 0.3em 0;
+}
+
+.searchBarMiddle {
+  display: flex;
+  width: 100%;
+}
+
+.searchBarMiddle input {
+  width: 100%;
+  margin: 0 0.5em;
+  padding: 0.5em 0;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.addExpense {
+  display: flex;
+  margin: 0.2em 0;
+  margin-right: 0.2em;
+}
+
+/* Boutons de la barre */
+.searchBtn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.searchBtn:hover {
+  background: none;
+}
+
+/* Icônes dans la barre */
+.searchBtn i {
+  color: var(--textSecondairePlaceholder);
+  font-size: 2em;
+}
+
+.fa-plus {
+  font-size: 2em;
+}
+
+/* -------------------------
+   Filters panel
+------------------------- */
+
+.filtersPanel {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+  padding: 14px;
+
+  border: 1px solid var(--bordure);
+  border-radius: 12px;
+  background: var(--backgroundListe);
+  backdrop-filter: blur(8px);
+}
+
+.filtersRow {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 12px;
+  align-items: end;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  color: var(--textPrincipal);
+  font-family: text, sans-serif;
+  font-size: 0.95rem;
+}
+
+.field select,
+.field input[type="date"] {
+  width: 100%;
+  padding: 0.8em;
+  background-color: var(--backgroundListe);
+  border: 1px solid var(--bordure);
+  color: var(--textSecondairePlaceholder);
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-family: text, sans-serif;
+}
+
+.filtersActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.btnSecondary {
+  cursor: pointer;
+  border: none;
+  padding: 0.7em 1em;
+  border-radius: 8px;
+  font-family: bouton, sans-serif;
+  font-weight: bold;
+  background: var(--bouttonPrincipal);
+  border: 1px solid var(--bordure);
+  color: var(--textBtn);
+}
+.btnSecondary:hover {
+  background: var(--boutonPrinciaplHover);
+}
+
+.resultAmount {
+  font-weight: bold;
+}
+
+/* -------------------------
+   Expenses list
+------------------------- */
+
+.expensesDetailed {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 2em;
+}
+
+.date {
+  margin-bottom: 0.2em;
+  color: var(--textPrincipal);
+  font-size: 0.9em;
+}
+
+/* Conteneur des résultats */
+.searchResults {
+  margin-top: 0.5em;
+  background-color: var(--backgroundCarte);
+  border-radius: 10px;
+  border: 1px solid var(--bordure);
+  overflow: hidden;
+}
+
+/* Une ligne */
+.resultRow {
+  display: grid;
+  grid-template-columns: 40% 20% 20%;
+  justify-content: space-between;
+  gap: 0.8em;
+  width: 100%;
+  padding: 0.6em 0.8em;
+  border-bottom: 1px solid var(--bordure);
+  align-items: center;
+}
+
+/* Partie gauche (icone + titre) */
+.resultLeft {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  min-width: 0;
+}
+
+.resultTitle {
+  font-size: 1.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: -2em;
+  /* white-space: nowrap;  */
+}
+
+.amountDashboard {
+  text-align: right;
+}
+
+.miniIcon {
+  border-radius: 4px;
+  transition: filter 0.25s ease;
+}
+html[data-theme="dark"] .miniIcon {
+  filter: brightness(0) invert(1);
+}
+
+html[data-theme="light"] .miniIcon {
+  filter: none;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Ligne “expenseRow” colorée via --cat-color */
+.expenseRow {
+  border: 2px solid var(--cat-color);
+  border-radius: 10px;
+  margin: 0.5em 0;
+  width: 100%;
+  color: var(--textSecondairePlaceholder);
+}
+
+.btn:hover {
+  background: var(--boutonPrinciaplHover);
+}
+
+.btnEdit {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5em;
+}
+
+/* Boutons edit/delete dans la ligne */
+.editBtn,
+.deleteBtn {
+  background-color: var(--bouttonPrincipal);
+  border: none;
+  cursor: pointer;
+}
+
+.editBtn i,
+.deleteBtn i {
+  font-size: 1.8em;
+}
+
+/* -------------------------
+   Category blocks (droite)
+------------------------- */
+
+.categoryDescription {
+  background-color: var(--bg-color);
+  color: var(--textPrincipal);
+  width: 100%;
+  align-items: center;
+  margin: 0 0 0.5em 0;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  padding: 12px;
+  letter-spacing: 0.1em;
+}
+
+.categoryDescription i {
+  border: none;
+  font-size: 2em;
+}
+
+.nameCategory,
+.sum,
+.total {
+  color: var(--textPrincipal);
+  letter-spacing: 0.1em;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* -------------------------
+   Responsive
+------------------------- */
+
+@media (max-width: 1100px) {
+  .resultRow {
+    display: grid;
+    grid-template-columns: 40% 20% 20%;
+  }
+}
+
+@media (min-width: 800px) {
+  .main {
+    display: grid;
+    grid-template-columns: 47% 47%;
+    gap: 6%;
+  }
+
+  .expensesTotalLeft {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .rightBlock {
+    display: none;
+  }
+}
+
+@media (max-width: 938px) {
+  .filtersRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 530px) {
+  .resultRow {
+    display: grid;
+    grid-template-columns: 40% 20% 20%;
+  }
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  .miniIcon {
+    display: none;
+  }
+  .resultTitle {
+    margin-right: -1em;
+  }
+}

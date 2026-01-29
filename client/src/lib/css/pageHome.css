@@ -1,0 +1,77 @@
+.homeMain {
+  z-index: 999;
+}
+
+.headline {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.textHeadline {
+  margin-bottom: 1rem;
+  align-items: center;
+  text-align: center;
+}
+
+.targets {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  gap: 3rem;
+  margin-bottom: 2em;
+}
+
+.target img {
+  width: 120px;
+  height: auto;
+  display: block;
+}
+
+.services {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  gap: 16px;
+  padding-bottom: 2em;
+  align-content: center;
+}
+
+.serviceDesc {
+  background-color: var(--backgroundCarte);
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  padding: 50px 50px;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.serviceCard {
+  background-color: var(--backgroundCarte);
+  font-family: text, sans-serif;
+  color: var(--textSecondairePlaceholder);
+}
+
+.titleHome {
+  width: 100%;
+  margin-top: -20px;
+}
+
+@media (max-width: 1270px) {
+  .serviceDesc {
+    padding: 50px 10px;
+    background-color: var(--backgroundCarte);
+  }
+}
+
+@media (max-width: 1060px) {
+  .services {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: stretch;
+  }
+
+  .serviceDesc {
+    background-color: var(--backgroundCarte);
+  }
+}

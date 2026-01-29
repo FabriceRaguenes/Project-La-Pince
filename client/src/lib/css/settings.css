@@ -1,0 +1,148 @@
+@font-face {
+  font-family: title;
+  src: url(../../assets/font/Inter/static/Inter_18pt-SemiBold.ttf);
+}
+@font-face {
+  font-family: text;
+  src: url(../../assets/font/Inter/static/Inter_28pt-Regular.ttf);
+}
+@font-face {
+  font-family: bouton;
+  src: url(../../assets/font/Inter/static/Inter_18pt-Medium.ttf);
+}
+
+/* Variable global */
+
+:root {
+  --test: #252832ec;
+}
+
+:root {
+  color-scheme: light dark;
+  --backgroundPrincipal: #20222d;
+  --backgroundCarte: #20232e;
+  --backgroundHeaderFooter: #242731;
+  --textPrincipal: #c8d4e4;
+  --textSecondairePlaceholder: #e1e1e1;
+  --bouttonPrincipal: #559cd2;
+  --boutonPrinciaplHover: #1d6fd8;
+  --bordure: #3c4154;
+  --backgroundListe: #141720;
+  --white: #ebe8e8;
+  --red: #f50707;
+  --black: #0e0d0d;
+  --overlay: #0000008c;
+  --textBtn: #c8d4e4;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --backgroundPrincipal: #f5f7fb;
+  --backgroundCarte: #ffffff;
+  --backgroundHeaderFooter: #eef2f7;
+  --textPrincipal: #0f172a;
+  --textSecondairePlaceholder: #475569;
+  --bouttonPrincipal: #1d6fd8;
+  --boutonPrinciaplHover: #2825b9;
+  --bordure: #d7deea;
+  --backgroundListe: #f1f5f9;
+  --textBtn: #c8d4e4;
+  --black: #fff;
+}
+
+body {
+  background: linear-gradient(
+    164deg,
+    var(--backgroundPrincipal) 0%,
+    var(--bordure) 60%,
+    var(--bouttonPrincipal) 100%
+  );
+}
+
+main {
+  width: 90%;
+  margin: 0 auto;
+  min-height: 82vh;
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--bouttonPrincipal);
+  border: none;
+  padding: 0.5em;
+  color: var(--textSecondairePlaceholder);
+  border-radius: 5px;
+  font-family: bouton, sans-serif;
+}
+button:hover {
+  background-color: #1d6fdb;
+}
+li {
+  list-style: none;
+}
+h1 {
+  color: var(--textPrincipal);
+  font-family: title, sans-serif;
+  text-align: center;
+  padding: 1em 0 1em 0;
+}
+p {
+  color: var(--textPrincipal);
+  font-family: text, sans-serif;
+}
+
+h2 {
+  color: var(--textPrincipal);
+  font-family: title, sans-serif;
+  margin: 0.5em;
+  padding: 0.5em;
+  width: 100%;
+}
+
+input {
+  background-color: var(--backgroundListe);
+  border: 1px solid var(--bordure);
+  color: var(--textSecondairePlaceholder);
+  border-radius: 10px;
+  font-family: text, sans-serif;
+}
+
+/* switch light mode, dark mode */
+
+.theme-switch {
+  width: 52px;
+  height: 28px;
+  background: var(--backgroundListe);
+  border: 2px solid var(--bordure);
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: background 0.3s ease;
+  margin-right: 2em;
+}
+
+.theme-switch:hover {
+  filter: brightness(1.05);
+}
+
+.theme-switch .thumb {
+  width: 22px;
+  height: 22px;
+  background: var(--backgroundCarte);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  position: absolute;
+  left: 3px;
+  transition: transform 0.25s ease;
+}
+
+/* Quand le thème est DARK → le bouton glisse à droite */
+.theme-switch .thumb.active {
+  transform: translateX(24px);
+}
