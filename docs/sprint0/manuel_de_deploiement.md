@@ -62,5 +62,5 @@ Ne pas oublier de modifier l’URL dE L'environnement **VITE_API_URL** dans ton 
 pour pointer vers l’URL de production :
 
 ```env
-VITE_API_URL=https://la_pince.onrender.com
+VITE_API_URL=https://project-la-pince-1.onrender.com/
 ```
