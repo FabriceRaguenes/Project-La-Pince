@@ -29,7 +29,7 @@ Configuration du **Web Service API** sur Render pour un projet utilisant un doss
 | Paramètre        | Valeur à saisir                  |
 |------------------|----------------------------------|
 | Root Directory   | `./api`                            |
-| Build Command    | `npm install && npm run db create `(**db:create est a retirer apres le premier deploiment**)      **             |
+| Build Command    | `npm install && npm run db:create `(**db:create est a retirer apres le premier deploiment**)      **             |
 | Start Command    | `npm start` (ou `node index.js`) |
 
 ---
@@ -37,9 +37,9 @@ Configuration du **Web Service API** sur Render pour un projet utilisant un doss
 ### Variables d’Environnement (onglet *Environment*)
 
 ```env
-DATABASE_URL=<bbd render internal PostgreSQL URL>
-JWT_SECRET=<ta_phrase_secrète>
-PORT=3000
+DATABASE_URL = <bbd render internal PostgreSQL URL>
+JWT_SECRET = <ta_phrase_secrète>
+PORT = 3000
 ```
 
 ### 3 Configuration du Front (Static Site)
@@ -50,7 +50,7 @@ Si ton Front est dans un dossier séparé (ex : `frontend/`) ou à la racine du 
 
 | Paramètre          | Valeur à saisir                                      |
 |--------------------|------------------------------------------------------|
-| Root Directory     | `./clients`          |
+| Root Directory     | `./client`          |
 | Build Command      | `npm run   build`                       |
 | Publish Directory  | `dist` |
 
