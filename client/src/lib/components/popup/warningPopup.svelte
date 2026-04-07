@@ -27,13 +27,12 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    background-color: white;
+    background-color: var(--backgroundWarning);
     border-radius: 8px;
     padding: 12px 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     margin-bottom: 10px;
     cursor: pointer;
-
     border-left: 6px solid;
     border-left-color: transparent;
     animation: slideIn 0.5s ease-out;
@@ -41,13 +40,14 @@
 
   .text strong {
     display: block;
-    font-size: 0.9rem;
-    color: #333;
+    font-size: 1.5rem;
+    text-align: center;
   }
   .text p {
     margin: 0;
-    font-size: 0.85rem;
-    color: #666;
+    font-size: 1rem;
+    color: var(--textWarning);
+    text-align: center;
   }
 
   @keyframes slideIn {

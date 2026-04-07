@@ -58,7 +58,7 @@
   <a class="close" on:click|preventDefault={onClose}
     ><i class="fa-solid fa-xmark"></i></a
   >
-  <main>
+  <main class="mainNewExpense">
     <h1>Nouvelle dépense</h1>
     <form class="formExpense" on:submit|preventDefault={handleSubmit}>
       <!-- Libellé -->
@@ -185,13 +185,12 @@
     border-color: var(--bouttonPrincipal);
   }
 
-  h1 {
+  .mainNewExpense h1 {
     color: var(--textPrincipal);
     font-family: title, sans-serif;
     text-align: center;
     padding: 2.5em 0 0em 0;
     font-size: 1.5em;
-    margin-bottom: -250px;
   }
 
   /* Bouton Ajouter */

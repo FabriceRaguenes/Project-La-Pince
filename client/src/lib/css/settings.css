@@ -11,17 +11,12 @@
   src: url(../../assets/font/Inter/static/Inter_18pt-Medium.ttf);
 }
 
-/* Variable global */
-
-:root {
-  --test: #252832ec;
-}
-
 :root {
   color-scheme: light dark;
   --backgroundPrincipal: #20222d;
   --backgroundCarte: #20232e;
   --backgroundHeaderFooter: #242731;
+  --backgroundWarning: #ffff;
   --textPrincipal: #c8d4e4;
   --textSecondairePlaceholder: #e1e1e1;
   --bouttonPrincipal: #559cd2;
@@ -33,6 +28,7 @@
   --black: #0e0d0d;
   --overlay: #0000008c;
   --textBtn: #c8d4e4;
+  --textWarning: #000000;
 }
 
 html[data-theme="light"] {
@@ -40,6 +36,7 @@ html[data-theme="light"] {
   --backgroundPrincipal: #f5f7fb;
   --backgroundCarte: #ffffff;
   --backgroundHeaderFooter: #eef2f7;
+  --backgroundWarning: #ffff;
   --textPrincipal: #0f172a;
   --textSecondairePlaceholder: #475569;
   --bouttonPrincipal: #1d6fd8;
@@ -48,6 +45,7 @@ html[data-theme="light"] {
   --backgroundListe: #f1f5f9;
   --textBtn: #c8d4e4;
   --black: #fff;
+  --textWarning: #000000;
 }
 
 body {

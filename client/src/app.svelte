@@ -1,6 +1,6 @@
 <script>
-  import {onMount} from "svelte";
-  import {request} from "./lib/services/api"  
+  import { onMount } from "svelte";
+  import { request } from "./lib/services/api";
 
   // ===============================
   // IMPORT DES COMPOSANTS
@@ -27,8 +27,8 @@
   // ===============================
   // ÉTAT GLOBAL DE L'APPLICATION
   // ===============================
-  let currentPage = "home";   // Variable pour gérer la page courante
-  let isLoggedIn = false;   // Variable pour gérer l'état de connexion de l'utilisateur
+  let currentPage = "home"; // Variable pour gérer la page courante
+  let isLoggedIn = false; // Variable pour gérer l'état de connexion de l'utilisateur
 
   // =====================================================
   // AU CHARGEMENT DE L’APPLICATION :
@@ -79,11 +79,9 @@
 =============================== -->
 {#if currentPage === "home"}
   <Home />
-
 {:else if currentPage === "login"}
   <!-- Passer isLoggedIn au login pour le mettre à jour après connexion -->
   <Login bind:currentPage bind:isLoggedIn />
-
 {:else if currentPage === "dashboard"}
   <!-- Vérifier si l'utilisateur est connecté avant d'afficher le dashboard -->
   {#if isLoggedIn}
@@ -92,10 +90,8 @@
     <!-- Si pas connecté, rediriger vers login -->
     {(currentPage = "login")}
   {/if}
-
 {:else if currentPage === "register"}
   <Register bind:currentPage bind:isLoggedIn />
-
 {:else if currentPage === "category"}
   <!-- Vérifier si l'utilisateur est connecté avant d'afficher les catégories -->
   {#if isLoggedIn}
@@ -103,29 +99,20 @@
   {:else}
     {(currentPage = "login")}
   {/if}
-
 {:else if currentPage === "homeSidebar"}
   <HomeSidebar />
-
 {:else if currentPage === "warningPopup"}
   <WarningPopup />
-
 {:else if currentPage === "newExpensesPopup"}
   <NewExpensesPopup onClose={() => (currentPage = "dashboard")} />
-
 {:else if currentPage === "newCategoryPopup"}
   <NewCategoryPopup />
-
-
 {:else if currentPage === "menuSidebar"}
   <MenuSidebar />
-
 {:else if currentPage === "editCategorie"}
   <EditCategorie bind:currentPage />
-
 {:else if currentPage === "filterCategorie"}
   <FilterCategorie bind:currentPage />
-  
 {:else if currentPage === "editExpenses"}
   <EditExpenses bind:currentPage />
 {/if}

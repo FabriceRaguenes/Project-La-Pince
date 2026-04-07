@@ -211,10 +211,9 @@
     editingExpense = expense;
     openEdit = true;
   }
-  // Fonction pour ajouter une notification sans doublon
+
   function addNotification(cat) {
     const id = cat.id;
-    // On vérifie si une notification pour cette catégorie existe déjà
     if (!notifications.find((n) => n.id === id)) {
       const isOver = cat.total_spent >= cat.max_budget;
 
@@ -231,7 +230,6 @@
     }
   }
 
-  // Surveillance des catégories
   $: {
     categoryTotals.forEach((cat) => {
       if (
@@ -303,7 +301,7 @@
     <!-- Afficher le nom de l'utilisateur si disponible -->
 
     <section class="expensesTotalLeft">
-      <p class="expenseTitle">Dépenses totales mensuel</p>
+      <p class="expenseTitle">Dépenses totales mensuelles</p>
       <span class="expense">
         <p><strong>{totalAmount.toFixed(2).replace(".", ",")} €</strong></p>
       </span>
@@ -493,10 +491,22 @@
           {/each}
         {/each}
       {/if}
-      <!-- Expenses -->
     </section>
   </section>
 
+  <div class="toast-container">
+    {#each notifications as n (n.id)}
+      <Toast
+        category={n.category}
+        message={n.message}
+        type={n.type}
+        color={n.color}
+        onRemove={() => removeNotification(n.id)}
+      />
+    {/each}
+  </div>
+
+  <!-- Expenses -->
   <!-- Right -->
   <section class="rightBlock">
     <section class="expensesTotalRight">
@@ -549,16 +559,5 @@
         </div>
       {/each}
     </section>
-    <div class="toast-container">
-      {#each notifications as n (n.id)}
-        <Toast
-          category={n.category}
-          message={n.message}
-          type={n.type}
-          color={n.color}
-          onRemove={() => removeNotification(n.id)}
-        />
-      {/each}
-    </div>
   </section>
 </main>

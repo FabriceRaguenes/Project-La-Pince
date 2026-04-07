@@ -12,9 +12,8 @@
   export let isLoggedIn;
 
   async function handleSubmit(event) {
-    event.preventDefault(); // bloque le submit HTML
+    event.preventDefault();
 
-    // vérif de base
     if (!mentions) {
       error = "Veuillez accepter les mentions légales";
       return;
@@ -28,34 +27,31 @@
       loading = true;
       error = "";
 
-      // appel l'api pour créer le compte
       const response = await auth.register({
         name: pseudo,
         email,
         password,
       });
 
-      // Mettre à jour l'état de connexion
       isLoggedIn = true;
-
-      // Rediriger vers le dashboard
       currentPage = "dashboard";
     } catch (err) {
-      if (err.message == "Failed to fetch"){
+      if (err.message == "Failed to fetch") {
         error = err.message;
         return error;
       }
       error = JSON.parse(err.message).message || "Erreur lors de la connexion";
-      if(error.startsWith("ValidationError: \"name\"")){
+      if (error.startsWith('ValidationError: "name"')) {
         error = "Username must contains at least 3 characters";
         return error;
       }
-      if(error.startsWith("ValidationError: \"email\"")){
+      if (error.startsWith('ValidationError: "email"')) {
         error = "Invalid email format";
         return error;
       }
-      if(error.startsWith("ValidationError: \"password\"")){
-        error = "Password must contains at least one lowercase, one uppercase, one number and one special (! @ # $ & * _ -)";
+      if (error.startsWith('ValidationError: "password"')) {
+        error =
+          "Password must contains at least one lowercase, one uppercase, one number and one special (! @ # $ & * _ -)";
         return error;
       }
       return error;
@@ -63,7 +59,6 @@
       loading = false;
     }
   }
-  
 </script>
 
 <main>

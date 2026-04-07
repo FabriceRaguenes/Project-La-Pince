@@ -1,19 +1,19 @@
 const BASE = import.meta.env.VITE_API_URL;
 
-// --- Token helpers ---
 export function getToken() {
   return localStorage.getItem("token");
-}
-export function setToken(token) {
-  localStorage.setItem("token", token);
 }
 export function clearToken() {
   localStorage.removeItem("token");
 }
+export function setToken(token) {
+  localStorage.setItem("token", token);
+}
 
-
-// --- Core request ---
-export async function request(path, { method = "GET", body, headers = {} } = {}) {
+export async function request(
+  path,
+  { method = "GET", body, headers = {} } = {},
+) {
   const finalHeaders = {
     "Content-Type": "application/json",
     "ngrok-skip-browser-warning": "true",

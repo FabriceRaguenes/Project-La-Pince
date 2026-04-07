@@ -1,6 +1,5 @@
-import { request, setToken, clearToken } from './api.js';
+import { request, setToken, clearToken } from "./api.js";
 
-// --- Auth endpoints ---
 export const auth = {
   async register({ name, email, password }) {
     const data = await request("/auth/register", {

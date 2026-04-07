@@ -35,7 +35,6 @@
   }
 
   onMount(() => {
-    // init theme
     const saved = localStorage.getItem("theme");
     if (saved === "light" || saved === "dark") {
       theme = saved;
@@ -116,17 +115,16 @@
 
         <!-- Bouton de déconnexion -->
         <button class="btn" on:click={handleLogout}> Se déconnecter </button>
-
-        <button
-          class="theme-switch"
-          on:click={toggleTheme}
-          aria-label="Changer le thème"
-        >
-          <span class:active={theme === "dark"} class="thumb">
-            {theme === "light" ? "☀️" : "🌙"}
-          </span>
-        </button>
       {/if}
+      <button
+        class="theme-switch"
+        on:click={toggleTheme}
+        aria-label="Changer le thème"
+      >
+        <span class:active={theme === "dark"} class="thumb">
+          {theme === "light" ? "☀️" : "🌙"}
+        </span>
+      </button>
     </section>
     <button id="sidebar" on:click={() => (open = !open)}>☰</button>
   </section>

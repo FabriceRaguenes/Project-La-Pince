@@ -331,12 +331,13 @@ html[data-theme="light"] .miniIcon {
 
 .toast-container {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  left: 0;
+  right: 0px;
   z-index: 9999;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
 }
 
 /* -------------------------
