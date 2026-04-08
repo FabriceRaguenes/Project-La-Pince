@@ -30,7 +30,7 @@ Configuration du **Web Service API** sur Render pour un projet utilisant un doss
 | Paramètre      | Valeur à saisir                                                                                   |
 | -------------- | ------------------------------------------------------------------------------------------------- |
 | Root Directory | `./api`                                                                                           |
-| Build Command  | `npm install && npm run db create `(**db:create est a retirer apres le premier deploiment**) \*\* |
+| Build Command  | `npm install && npm run db:create `(**db:create est a retirer apres le premier deploiment**) \*\* |
 | Start Command  | `npm start` (ou `node index.js`)                                                                  |
 
 ---
