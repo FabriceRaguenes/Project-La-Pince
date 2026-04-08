@@ -23,10 +23,12 @@
 
       const response = await auth.login({ email, password });
 
+      // Le token est automatiquement stocké par auth.login
+      // Rediriger vers le dashboard
       isLoggedIn = true;
       currentPage = "dashboard";
     } catch (err) {
-      if (err.message == "Failed to fetch") {
+      if (err.message == "Failed to fetch"){
         error = err.message;
         return error;
       }

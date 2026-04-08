@@ -211,9 +211,10 @@
     editingExpense = expense;
     openEdit = true;
   }
-
+  // Fonction pour ajouter une notification sans doublon
   function addNotification(cat) {
     const id = cat.id;
+    // On vérifie si une notification pour cette catégorie existe déjà
     if (!notifications.find((n) => n.id === id)) {
       const isOver = cat.total_spent >= cat.max_budget;
 
@@ -230,6 +231,7 @@
     }
   }
 
+  // Surveillance des catégories
   $: {
     categoryTotals.forEach((cat) => {
       if (

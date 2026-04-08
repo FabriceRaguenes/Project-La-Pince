@@ -1,4 +1,5 @@
-# Manuel de Déploiement  
+# Manuel de Déploiement
+
 ## API "La Pince" sur Render
 
 Ce document définit la marche à suivre pour garantir un deploiement sur render
@@ -11,8 +12,8 @@ Ce document définit la marche à suivre pour garantir un deploiement sur render
 ## 1 Configuration de l’Infrastructure (Dashboard Render)
 
 ### Base de données
-- Créez une instance **PostgreSQL** 
 
+- Créez une instance **PostgreSQL**
 
 - une fois la bdd creer identifiez (allez dans **info**):
   - **External URL** → pour les accès **locaux** (ex : vscode)
@@ -26,20 +27,20 @@ Configuration du **Web Service API** sur Render pour un projet utilisant un doss
 
 ### reglages du service API
 
-| Paramètre        | Valeur à saisir                  |
-|------------------|----------------------------------|
-| Root Directory   | `./api`                            |
-| Build Command    | `npm install && npm run db:create `(**db:create est a retirer apres le premier deploiment**)      **             |
-| Start Command    | `npm start` (ou `node index.js`) |
+| Paramètre      | Valeur à saisir                                                                                   |
+| -------------- | ------------------------------------------------------------------------------------------------- |
+| Root Directory | `./api`                                                                                           |
+| Build Command  | `npm install && npm run db create `(**db:create est a retirer apres le premier deploiment**) \*\* |
+| Start Command  | `npm start` (ou `node index.js`)                                                                  |
 
 ---
 
-### Variables d’Environnement (onglet *Environment*)
+### Variables d’Environnement (onglet _Environment_)
 
 ```env
-DATABASE_URL = <bbd render internal PostgreSQL URL>
-JWT_SECRET = <ta_phrase_secrète>
-PORT = 3000
+DATABASE_URL=<bbd render internal PostgreSQL URL>
+JWT_SECRET=<ta_phrase_secrète>
+PORT=3000
 ```
 
 ### 3 Configuration du Front (Static Site)
@@ -48,11 +49,11 @@ Si ton Front est dans un dossier séparé (ex : `frontend/`) ou à la racine du 
 
 ### réglages du Static Site
 
-| Paramètre          | Valeur à saisir                                      |
-|--------------------|------------------------------------------------------|
-| Root Directory     | `./client`          |
-| Build Command      | `npm run   build`                       |
-| Publish Directory  | `dist` |
+| Paramètre         | Valeur à saisir   |
+| ----------------- | ----------------- |
+| Root Directory    | `./clients`       |
+| Build Command     | `npm run   build` |
+| Publish Directory | `dist`            |
 
 ---
 
@@ -62,5 +63,5 @@ Ne pas oublier de modifier l’URL dE L'environnement **VITE_API_URL** dans ton 
 pour pointer vers l’URL de production :
 
 ```env
-VITE_API_URL=https://project-la-pince-1.onrender.com/
+VITE_API_URL=https://la_pince.onrender.com
 ```

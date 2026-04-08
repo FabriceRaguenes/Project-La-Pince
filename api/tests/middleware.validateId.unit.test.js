@@ -1,39 +1,46 @@
-import { validateId } from "../middlewares/common.middleware.js";
-import { jest } from "@jest/globals";
+import { validateId } from '../middlewares/common.middleware.js';
+import { jest } from '@jest/globals';
+
 
 describe("validateId", () => {
-  const res = {};
 
-  it("id is a random string like a word", () => {
-    const req = {
-      params: { id: "lorem" },
-    };
+    const res = {}; // the function doesn't use res
 
-    const next = jest.fn();
+    it("id is a random string like a word", () => {
 
-    validateId(req, res, next);
-    expect(next).toHaveBeenCalledWith(expect.any(Error));
-  });
+        const req = {
+            params: {id: "lorem"}
+        }
 
-  it("id is a number < 1", () => {
-    const req = {
-      params: { id: "-4" },
-    };
+        const next = jest.fn();
 
-    const next = jest.fn();
+        // HttpError extends Error
+        validateId(req, res, next);
+        expect(next).toHaveBeenCalledWith(expect.any(Error));
+    });
 
-    validateId(req, res, next);
-    expect(next).toHaveBeenCalledWith(expect.any(Error));
-  });
+    it("id is a number < 1", () => {
 
-  it("id is a number >= 1", () => {
-    const req = {
-      params: { id: "6" },
-    };
+        const req = {
+            params: {id: "-4"}
+        }
 
-    const next = jest.fn();
+        const next = jest.fn();
 
-    validateId(req, res, next);
-    expect(next).toHaveBeenCalledWith();
-  });
+        validateId(req, res, next);
+        expect(next).toHaveBeenCalledWith(expect.any(Error));
+    });
+
+    it("id is a number >= 1", () => {
+
+        const req = {
+            params: {id: "6"}
+        }
+
+        const next = jest.fn();
+
+        validateId(req, res, next);
+        expect(next).toHaveBeenCalledWith(); // called with no argument
+    });
+
 });

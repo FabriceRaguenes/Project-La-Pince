@@ -10,12 +10,14 @@
   let canvas;
   let chart;
 
+  // Fonction pour mettre à jour le graphique sans le recréer entièrement
   function updateChart() {
     if (!chart) return;
 
     chart.data.labels = labels;
     chart.data.datasets[0].data = values;
 
+    // Si on a des couleurs, on les met, sinon on met du gris par sécurité
     if (colors && colors.length > 0) {
       chart.data.datasets[0].backgroundColor = colors;
     } else {
