@@ -65,3 +65,5 @@ pour pointer vers l’URL de production :
 ```env
 VITE_API_URL=https://la_pince.onrender.com
 ```
+
+deploy
